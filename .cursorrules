@@ -1,0 +1,67 @@
+---
+description: Python-based offline tool for generating 3D models of closet/drawer dividers.
+           The tool accepts dimensions (width, height, length), allows configurable grid layouts 
+           (preset grids or custom section sizes), and exports STL files compatible with Bambu Lab printers.
+globs: **/*.py, src/**/*.py, tests/**/*.py
+---
+
+# 3D Divider Generator Best Practices
+
+## Project Structure
+- Use a `src/` directory with modules organized by functionality:
+  - `ui/` for user interface components (using Tkinter or PyQt).
+  - `logic/` for business logic modules, such as:
+    - `dimension_parser` for validating and processing inputs.
+    - `grid_engine` for computing divider layouts.
+    - `model_builder` for generating 3D models via a CAD library (e.g., SolidPython/OpenSCAD).
+    - `file_exporter` for exporting models as STL files.
+  - `config/` for configuration files and constants.
+- Place tests in the `tests/` directory parallel to `src/`.
+
+## Code Style
+- Follow PEP 8 style guidelines.
+- Use snake_case for functions and variables.
+- Use PascalCase for class names.
+- Limit lines to 88 characters.
+- All modules, functions, and classes must include clear docstrings and inline comments where needed.
+
+## Type Hints
+- Use Python type hints for all function parameters and return types.
+- Import necessary types from the `typing` module.
+- Use `Optional` for parameters that may be null.
+
+## UI Guidelines
+- Use a minimal UI framework (e.g., Tkinter or PyQt) to keep the tool lightweight.
+- Decouple UI logic from business logic to ensure maintainability.
+- Validate user inputs and provide clear error messages in the interface.
+
+## Business Logic & Model Generation
+- Design the tool in a modular fashion so that each component (dimension parsing, grid calculation, model generation, file export) is self-contained.
+- Validate and standardize all user inputs (e.g., converting to millimeters).
+- Write unit tests for individual modules to ensure robustness.
+- Ensure the model_builder generates clean and error-free 3D models ready for STL export.
+
+## Testing
+- Use pytest for unit and integration testing.
+- Test edge cases for input validation, grid layout computations, and model generation.
+- Write integration tests that cover the full workflow from input to STL export.
+
+## Documentation
+- Maintain comprehensive documentation including a README.md with setup instructions, usage guidelines, and dependency lists.
+- Use Google-style or NumPydoc docstrings for all public functions.
+- Keep inline comments for non-trivial code blocks.
+
+## Dependencies
+- Use a virtual environment (e.g., venv) for development.
+- List and pin dependencies in a `requirements.txt` file.
+- Regularly update dependencies and monitor for security vulnerabilities.
+
+## Deployment
+- Ensure the application runs entirely offline.
+- Provide clear build instructions for creating a standalone executable if required.
+- Verify the exported STL files are compatible with Bambu Lab printers.
+
+## Version Control
+- Use Git for version control.
+- Follow conventional commit messages for clarity (e.g., feat, fix, docs).
+- Use feature branches for new functionality and bug fixes.
