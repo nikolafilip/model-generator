@@ -21,13 +21,13 @@ This project was entirely designed and implemented using Large Language Models (
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/yourusername/model-generator.git
+git clone https://github.com/nikolafilip/model-generator.git
 cd model-generator
 ```
 
 2. Create and activate a virtual environment:
 ```bash
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
@@ -49,7 +49,7 @@ pip install -r requirements.txt
 
 1. Run the application:
 ```bash
-python src/main.py
+python3 src/main.py
 ```
 
 2. Input your drawer dimensions:
